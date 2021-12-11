@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("https://lobovikpropuskmain.gatsbyjs.io/static/header-bg-4268f0c223bd60a2aa762d39bb26120c.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #787878;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 1024px;
+    max-width:95%;
+    margin: 0 auto;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .brand-logo{
+    width: 30%;
+}
+
+header nav .brand-logo img{
+    width: 100%;
+    height: auto;
+}
+
+header input{
+    display: none;
+}
+
+header label {
+    display: none;
+}
+
+header nav .mobile-menu{
+    display: none;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 65%;
+}
+
+header nav ul li {
+}
+
+header nav ul li a{
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+header nav ul li a:hover{
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.wrapper .wrapper__cta{
+    width: 440px;
+}
+
+.wrapper .wrapper__cta h1{
+    font-size: 46px;
+}
+
+.wrapper .wrapper__cta p{
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.wrapper .wrapper__cta button{
+    background: #ea6041;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    padding: 20px;
+    min-width: 320px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 12px -2px rgb(0 0 0 / 50%);
+    transition: .3s ease;
+}
+
+.wrapper .wrapper__cta button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 32px -2px rgb(0 0 0 / 70%);
+}
+
+@media (max-width: 1336px) {
+    body{
+        background-position-x: 35%;
+    }
+}
+
+@media (max-width: 970px) {
+    header nav ul li a{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 840px) {
+    body {
+        background-image: url("https://lobovikpropuskmain.gatsbyjs.io/static/header-md-bg-48506a1e0b4f2144c06537635e4273ea.png");
+        background-position: 63%;
+    }
+    header nav ul li:nth-last-child(1){
+        display: none;
+    }
+    .wrapper .wrapper__cta h1{
+        font-size: 40px;
+    }
+    .wrapper .wrapper__cta p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 771px) {
+    body {
+        background-image: url("https://lobovikpropuskmain.gatsbyjs.io/static/header-bg-mobile-654f78ea7bd01b3b7f826d88107fefa3.png");
+    }
+    .wrapper .wrapper__cta {
+        margin-top: -170px;
+    }
+}
+
+@media (max-width: 730px) {
+    header nav ul li a{
+        font-size: 13px;
+    }
+
+    header nav ul li:nth-last-child(2){
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background-position: 0;
+    }
+
+    header nav label{
+        display: block;
+        width: 35px;
+        height: 40px;
+        background-color: #787878;
+        cursor: pointer;
+    }
+
+    header nav input[type="checkbox"]:checked ~ul{
+        display: block;
+    }
+
+    /*header nav .mobile-menu{*/
+    /*    position: relative;*/
+    /*    display: block;*/
+    /*    width: 35px;*/
+    /*    height: 40px;*/
+    /*    background: none;*/
+    /*    border: none;*/
+    /*    margin: 0 20px;*/
+    /*    cursor: pointer;*/
+    /*}*/
+
+    /*header nav .mobile-menu span{*/
+    /*    display: block;*/
+    /*    width: 100%;*/
+    /*    margin: 7px 0;*/
+    /*    height: 2px;*/
+    /*    background-color: #787878;*/
+    /*}*/
+
+    header nav ul {
+        display: none;
+    }
+
+    header nav .brand-logo {
+        width: 50%;
+    }
+}
+
+.block{
+    background: black;
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+
+.block div{
+    position: absolute;
+    top: 50%;
+    background: red;
+    width: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+}
