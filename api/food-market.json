@@ -37,7 +37,7 @@
       "id": 4,
       "title": "Двойной Биг Мак",
       "main_image": {
-        "src": "https://mcdonalds.ru/resize/500x500//upload/iblock/e83/2512_BigTasty_Double_1500x1500_min.png",
+        "src": "https://mcdonalds.ru/resize/500x500//upload/iblock/937/0000_BigMac_Double_BB_1500x1500_min.png",
         "alt": "food"
       },
       "description": "Очень большой бургер с четырьмя рублеными бифштексами из 100% говядины на булочке с кунжутом, поджаренной в тостере, маринованными огурчиками, луком, свежим салатом «Айсберг», ломтиком плавленого сыра «Чеддер» и специальным соусом «Биг Мак».",
@@ -81,7 +81,7 @@
       "id": 8,
       "title": "Картофель Фри Большой",
       "main_image": {
-        "src": "https://mcdonalds.ru/resize/500x500//upload/iblock/1e5/2060_Royal_BB_1500x1500_min.png",
+        "src": "https://mcdonalds.ru/resize/500x500//upload/iblock/276/LargeFries.png",
         "alt": "food"
       },
       "description": "Вкусные, обжаренные в растительном фритюре и слегка посоленные палочки картофеля. Большая порция",
