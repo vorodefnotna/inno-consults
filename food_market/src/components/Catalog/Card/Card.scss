@@ -1,0 +1,89 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D58C51;
+  padding: 20px 17px;
+  width: calc((100% - 40px) / 4);
+  min-width: 224px;
+  max-width: 312px;
+  margin: 17px 0;
+  &:hover{
+    .card_product{
+      color: #D58C51!important;
+    }
+    .card_footer{
+      .card_price{
+        color: #D58C51;
+      }
+      .card_calories{
+        p{
+          color: #D58C51;
+        }
+      }
+    }
+  }
+  &_img{
+    height: 170px;
+    text-align: center;
+    img{
+      height: 100%;
+      width: auto;
+    }
+  }
+  &_product{
+    color: #fff;
+    min-height: 140px;
+    h2{
+      font-size: 17px;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    p{
+      font-size: 13px;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+  }
+  &_footer{
+    position: relative;
+    margin-top: 20px;
+    .card_price{
+      color: #fff;
+      font-size: 14px;
+      h4{
+        font-size: 17px;
+      }
+    }
+    .card_calories{
+      p{
+        font-size: 10px;
+        color: #fff;
+      }
+    }
+    .card_button{
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      border: 1px solid #fff;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 23px;
+      line-height: 30px;
+      transition: .2s ease;
+      &:hover{
+        background: #D58C51;
+        border-color: #D58C51;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.market {
+  background-image: url("../../img/auth-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.authorization{
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  &_window{
+    background: #fff;
+    width: 100%;
+    max-width: 460px;
+    padding: 35px 20px;
+  }
+
+  &_title{
+    text-align: center;
+    margin-bottom: 35px;
+    h1{
+      font-size: 32px;
+      font-weight: 700;
+    }
+  }
+
+  &_input{
+    margin-bottom: 17px;
+    input[type='text']{
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 60px;
+      border: 1px solid #D58C51;
+    }
+  }
+
+  &_button{
+    text-align: center;
+  }
+}

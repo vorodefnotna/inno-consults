@@ -1,0 +1,47 @@
+.basket {
+  &_header {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+    h1{
+      font-size: 31px;
+      text-transform: uppercase;
+    }
+  }
+  &_list{
+    width: 860px;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  &_footer{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 860px;
+    max-width: 80%;
+    margin: 50px auto 0 auto;
+    &:before{
+      content: '';
+      position: absolute;
+      display: block;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 1px;
+      background: #D58C51;
+    }
+    h2{
+      color: #fff;
+      font-size: 21px;
+      text-transform: uppercase;
+      font-weight: 300;
+      span{
+        font-size: 18px;
+        font-weight: 300;
+        color: #D58C51;
+      }
+    }
+  }
+}

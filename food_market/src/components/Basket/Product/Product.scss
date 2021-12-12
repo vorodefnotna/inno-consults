@@ -1,0 +1,38 @@
+.basket-product{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+  &_img{
+    img{
+      height: 122px;
+      width: auto;
+    }
+  }
+  &_name{
+    color: #fff;
+    font-size: 18px;
+  }
+  &_price{
+    color: #D58C51;
+    font-size: 18px;
+  }
+  &_remove{
+    position: absolute;
+    right: 0;
+    &:before{
+      content: '+';
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 22px;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      border: 1px solid #D58C51;
+      color: #D58C51;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.cart{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  &_desc{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 20px;
+  }
+}

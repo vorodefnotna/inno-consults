@@ -1,0 +1,16 @@
+.market-button {
+  padding: 13px;
+  border-radius: 3px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: #D58C51;
+  width: 200px;
+  max-width: 90%;
+  cursor: pointer;
+  transition: .3s ease;
+  &:hover{
+    background: #dc664d;
+    transform: scale(1.1);
+  }
+}

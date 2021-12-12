@@ -1,0 +1,21 @@
+.market {
+  background: #161516 none;
+}
+
+.catalog {
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    h1{
+      font-size: 32px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+  &_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
