@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { Routes, Route, PrivateRoute }                  from 'react-router-dom';
-import Layout                             from './components/Layout';
-import Auth                               from './components/Auth';
-import Catalog                            from './components/Catalog';
-import Basket                             from './components/Basket';
+import { Routes, Route, Navigate }                   from 'react-router-dom';
+import Layout                                        from './components/Layout';
+import Auth                                          from './components/Auth';
+import Catalog                                       from './components/Catalog';
+import Basket                                        from './components/Basket';
 
 import './style/app.scss';
 
@@ -11,20 +11,20 @@ export const AppContext = createContext( null );
 
 function App () {
   const [data, setData] = useState( null );
-  const [isAccess, setIsAccess] = useState(false)
+  const [isAccess, setIsAccess] = useState( false );
   const [isLoading, setIsLoading] = useState( true );
-  const [basket, setBasket] = useState( null);
-  const [user, setUser] = useState('')
+  const [basket, setBasket] = useState( null );
+  const [user, setUser] = useState( '' );
 
-  useEffect(() => {
-    getData()
-  }, [])
+  useEffect( () => {
+    getData();
+  }, [] );
 
-  useEffect(() => {
-    if(isAccess) {
-      getSavedData()
+  useEffect( () => {
+    if ( isAccess ) {
+      getSavedData();
     }
-  }, [isAccess])
+  }, [isAccess] );
 
   const getData = () => fetch( 'https://erikkhasanov.github.io/inno-consults/api/food-market.json' )
   .then( res => res.json() )
@@ -33,77 +33,66 @@ function App () {
   .finally( () => setIsLoading( false ) );
 
   const getSavedData = () => {
-    const saved = JSON.parse(window.localStorage.getItem(`basketData_${user}`))
-    if(!saved) return
-    setBasket(saved.basket)
-  }
+    const saved = JSON.parse( window.localStorage.getItem( `basketData_${user}` ) );
+    if ( !saved ) return;
+    setBasket( saved.basket );
+  };
 
-  const basketHandler = (method, id) => {
-    let copyBasket = basket && [...basket] || []
-    if(method === 'add') {
-      const product = data.find(product => product.id === id)
-      product.uid = new Date().getMilliseconds() + Math.random()
-      copyBasket.push(data.find(product => product.id === id))
-    } else if (method === 'remove') {
-      const arr = copyBasket.filter(product => product.uid !== id)
-      copyBasket = arr
+  const basketHandler = ( method, id ) => {
+    let copyBasket = basket && [...basket] || [];
+    if ( method === 'add' ) {
+      const product = data.find( product => product.id === id );
+      product.uid = new Date().getMilliseconds() + Math.random();
+      copyBasket.push( data.find( product => product.id === id ) );
+    } else if ( method === 'remove' ) {
+      const arr = copyBasket.filter( product => product.uid !== id );
+      copyBasket = arr;
     }
-    setBasket(copyBasket)
-  }
+    setBasket( copyBasket );
+  };
 
   const resetContext = () => {
-    setIsAccess(false)
-    setBasket(null)
-    setUser('')
-  }
+    setIsAccess( false );
+    setBasket( null );
+    setUser( '' );
+  };
 
   return (
-    <Layout>
+    <AppContext.Provider value={{
+      data,
+      isLoading,
+      isAccess,
+      setIsAccess,
+      basket,
+      resetContext,
+      basketHandler,
+      getSavedData,
+      user,
+      setUser
+    }}>
       <Routes>
-        <Route index element={
-          <AppContext.Provider value={{
-            setUser,
-            setIsAccess
-          }}>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={
             <Auth/>
-          </AppContext.Provider>
-        }/>
-        { isAccess && (
-          <Route path="/catalog" element={
-            <AppContext.Provider value={{
-              data,
-              isLoading,
-              basket,
-              basketHandler
-            }}>
+          }/>
+          {isAccess && (
+            <Route path="/catalog" element={
               <Catalog/>
-            </AppContext.Provider>
-          }/>
-        )}
-        {isAccess && (
-          <Route path="/basket" element={
-            <AppContext.Provider value={{
-              basket,
-              isLoading,
-              basketHandler,
-              user,
-              resetContext
-            }}>
+            }/>
+          )}
+          {isAccess && (
+            <Route path="/basket" element={
               <Basket/>
-            </AppContext.Provider>
+            }/>
+          )}
+          <Route path="*" element={
+            <Navigate to="/"/>
           }/>
-        )}
-        <Route path='*' element={
-          <AppContext.Provider value={{
-            setUser,
-            setIsAccess
-          }}>
-            <Auth/>
-          </AppContext.Provider>
-        }/>
+        </Route>
       </Routes>
-    </Layout>
-  );
+    </AppContext.Provider>
+  )
+    ;
 };
 
 export default App;

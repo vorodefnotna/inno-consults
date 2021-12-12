@@ -1,6 +1,12 @@
 .market{
   display: flex;
   min-height: 100vh;
+  background: #161516 none;
+  &_authorization{
+    background-image: url("../../img/auth-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   &_layout{
     width: 100%;
     max-width: 1440px;

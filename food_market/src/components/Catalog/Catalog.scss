@@ -1,7 +1,3 @@
-.market {
-  background: #161516 none;
-}
-
 .catalog {
   &_header {
     display: flex;
@@ -16,6 +12,6 @@
   &_list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }

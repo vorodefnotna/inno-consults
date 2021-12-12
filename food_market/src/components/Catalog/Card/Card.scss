@@ -3,10 +3,10 @@
   flex-direction: column;
   border: 1px solid #D58C51;
   padding: 20px 17px;
-  width: calc((100% - 40px) / 4);
+  width: calc((100% - 40px)/ 4);
   min-width: 224px;
   max-width: 312px;
-  margin: 17px 0;
+  margin: 17px auto;
   &:hover{
     .card_product{
       color: #D58C51!important;

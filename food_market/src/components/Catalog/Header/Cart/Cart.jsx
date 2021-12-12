@@ -5,8 +5,6 @@ import {getSum} from '../../../../helpers/helpers';
 
 import './Cart.scss'
 
-const cartIcon = require('../../../../img/cart-icon.png')
-
 const Cart = ({basket}) => {
 
   const count = basket ? basket.length : '0'
@@ -18,7 +16,7 @@ const Cart = ({basket}) => {
           <span>{count} товара</span>
           <span>на сумму {getSum(basket)} руб</span>
         </div>
-        <img src={cartIcon.default} alt="cart"/>
+        <img src='/img/cart-icon.png' alt="cart"/>
       </div>
     </Link>
   );
