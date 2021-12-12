@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Button.scss'
 
-const Button = ({label, onClick, className}) => {
+const Button = ({type, label, onClick, className}) => {
   return (
-    <button className={`market-button ${className}`} onClick={onClick}>
+    <button type={type} className={`market-button ${className}`} onClick={onClick}>
       {label}
     </button>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Product.scss'
 
-const Product = ({id, img, name, price}) => {
+const Product = ({id, img, name, price, remove}) => {
   return (
     <div className='basket-product'>
       <div className='basket-product_img'>
@@ -14,7 +14,7 @@ const Product = ({id, img, name, price}) => {
       <div className='basket-product_price'>
         {price}
       </div>
-      <div className='basket-product_remove'/>
+      <div className='basket-product_remove' onClick={() => remove('remove', id)}/>
     </div>
   );
 };

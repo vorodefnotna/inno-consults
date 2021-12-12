@@ -1,4 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext} from 'react';
+import { AppContext }      from '../../App';
+import {useNavigate}       from 'react-router-dom';
+
+import {getSum} from '../../helpers/helpers';
 
 import Header  from '../Catalog/Header';
 import Product from './Product';
@@ -7,16 +11,24 @@ import Footer  from './Footer';
 import './Basket.scss'
 
 const Basket = () => {
-  const [isLoading, setIsLoading] = useState( true );
-  const [products, setProducts] = useState( null );
+  const {basket, isLoading, basketHandler, user, resetContext} = useContext(AppContext)
+  const navigate = useNavigate()
 
-  useEffect( () => {
-    fetch( 'https://erikkhasanov.github.io/inno-consults/api/food-market.json' )
-    .then( res => res.json() )
-    .then( res => setProducts( res.data ) )
-    .catch( e => console.error( e ) )
-    .finally( () => setIsLoading( false ) );
-  }, [] );
+  const orderBuy = () => {
+    const data = {
+      user: user,
+      basket: basket,
+      price: `${getSum(basket)} руб`
+    }
+    saveData(data)
+    console.log(data);
+    resetContext()
+    navigate('/')
+  }
+
+  const saveData = (data) => {
+    window.localStorage.setItem(`basketData_${user}`, JSON.stringify(data))
+  }
 
   if(isLoading) return (
     <div>
@@ -31,16 +43,20 @@ const Basket = () => {
         title='Корзина с выбранными товарами'
       />
       <div className='basket_list'>
-        {products.map(product => (
+        {basket?.map(product => (
           <Product
-            id={product.id}
+            id={product.uid}
             img={product.main_image}
             name={product.title}
             price={product.price}
+            remove={basketHandler}
           />
         ))}
       </div>
-      <Footer price={'3200 руб'}/>
+      <Footer
+        price={`${getSum(basket)} руб`}
+        onClick={orderBuy}
+      />
     </div>
   );
 };

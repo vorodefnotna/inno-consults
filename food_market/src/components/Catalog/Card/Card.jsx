@@ -4,7 +4,7 @@ import './Card.scss'
 
 const Card = ({id, img, name, description, price, calories, onClick}) => {
   return (
-    <div className='card' onClick={onClick}>
+    <div className='card' key={id}>
       <div className='card_img'>
         <img src={img.src} alt={img.alt}/>
       </div>
@@ -19,7 +19,7 @@ const Card = ({id, img, name, description, price, calories, onClick}) => {
         <div className='card_calories'>
           <p>{calories}</p>
         </div>
-        <div className='card_button'>
+        <div className='card_button' onClick={() => onClick('add', id)}>
           +
         </div>
       </div>

@@ -2,11 +2,11 @@ import React from 'react';
 
 import Cart from './Cart';
 
-const Header = ({className, title, cart}) => {
+const Header = ({className, title, basket, showBasket = false}) => {
   return (
     <div className={className}>
       <h1>{title}</h1>
-      {cart && <Cart count={cart.count} price={cart.price}/>}
+      {showBasket && <Cart basket={basket}/>}
     </div>
   );
 };

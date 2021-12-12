@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 
-const Input = ({placeHolder, id, className, onInput, ref}) => {
+const Input = forwardRef (({placeHolder, id, className, onInput}, ref) => {
   return (
       <input
         ref={ref}
@@ -11,6 +11,6 @@ const Input = ({placeHolder, id, className, onInput, ref}) => {
         onInput={onInput}
       />
   );
-};
+})
 
 export default Input;
